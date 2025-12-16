@@ -197,7 +197,10 @@ body {
   text-decoration: underline;
 }
 /* スマホ：ナビが縦に割れるのを防ぐ */
+/* スマホ：ナビが縦に割れるのを防ぐ */
 @media (max-width: 720px) {
+  .site-header { padding: 0 12px; }
+
   .header-inner {
     align-items: center;
     gap: 10px;
@@ -211,6 +214,7 @@ body {
   .global-nav {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    max-width: 70vw;
   }
 
   .nav-list {
