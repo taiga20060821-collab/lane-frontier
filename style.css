@@ -196,3 +196,31 @@ body {
 .news-item a:hover {
   text-decoration: underline;
 }
+/* スマホ：ナビが縦に割れるのを防ぐ */
+@media (max-width: 720px) {
+  .header-inner {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo {
+    white-space: nowrap;
+    font-size: 16px;
+  }
+
+  .global-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-list {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    gap: 8px;
+  }
+
+  .nav-list a {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+}
