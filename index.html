@@ -8,85 +8,104 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Sticky Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="index.html">Lane Frontier</a>
+      <a class="brand" href="index.html" aria-label="Lane Frontier トップ">
+        <span class="brand-icon" aria-hidden="true">🎮</span>
+        <span class="brand-name">Lane Frontier</span>
+      </a>
 
       <nav class="global-nav" aria-label="グローバルナビゲーション">
         <ul class="nav-list">
-          <li><a href="#beginner">はじめて</a></li>
-          <li><a href="#news">お知らせ</a></li>
-          <li><a href="rules.html">ルール</a></li>
-          <li><a href="cards.html">カード</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <!-- hoverで開く（そのまま押しても反応なし、に合わせて button + menu） -->
+          <li class="nav-item has-dropdown">
+            <button class="nav-link nav-button" type="button" aria-haspopup="true" aria-expanded="false">
+              レーンフロンティアとは
+            </button>
+            <ul class="dropdown" role="menu" aria-label="レーンフロンティアとは">
+              <li role="none"><a role="menuitem" href="#about-game">どんなゲーム？</a></li>
+              <li role="none"><a role="menuitem" href="#about-world">世界観</a></li>
+              <li role="none"><a role="menuitem" href="#about-team">製作者</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="rules.html">ルール</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news">お知らせ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">お問い合わせ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#home">ホームページ</a></li>
         </ul>
       </nav>
+
+      <!-- SNS（なるべく多く置く：ヘッダー右側） -->
+      <div class="sns">
+        <a class="sns-link" href="#" target="_blank" rel="noreferrer">X</a>
+        <a class="sns-link" href="#" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="sns-link" href="#" target="_blank" rel="noreferrer">LINE</a>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- Hero Slider -->
+  <main id="home">
+    <!-- Hero：スライドショー（図1/図2/図3） -->
     <section class="hero">
       <div class="container">
-        <div class="hero-slider" id="heroSlider">
-
-          <div class="hero-slide is-active">
-            <h1 class="hero-title">Lane Frontier</h1>
-            <p class="hero-lead">
-              学生チーム制作中。テストプレイでルールを磨き、商品化を目指します。
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="rules.html">ルールを見る</a>
-              <a class="btn btn-ghost" href="#news">最新情報</a>
-            </div>
-          </div>
-
-          <div class="hero-slide">
-            <h1 class="hero-title">テストプレイ募集中</h1>
-            <p class="hero-lead">
-              参加・感想提供、大歓迎。改善スピードを上げています。
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#news">募集を見る</a>
-              <a class="btn btn-ghost" href="#faq">FAQ</a>
-            </div>
-          </div>
-
-          <div class="hero-slide">
-            <h1 class="hero-title">デッキ × ボード</h1>
-            <p class="hero-lead">
-              読み合いと位置取り。移動が勝敗を分けるカードゲーム。
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="cards.html">カードを見る</a>
-              <a class="btn btn-ghost" href="#beginner">特徴</a>
-            </div>
-          </div>
-
+        <div class="hero-top">
+          <h1 class="hero-title">Lane Frontier</h1>
         </div>
+
+        <div class="slider" aria-label="トップスライド">
+          <button class="slider-btn prev" type="button" aria-label="前の画像">‹</button>
+
+          <div class="slides" id="slides">
+            <div class="slide is-active" aria-label="図1">
+              <div class="slide-placeholder">図1</div>
+            </div>
+            <div class="slide" aria-label="図2">
+              <div class="slide-placeholder">図2</div>
+            </div>
+            <div class="slide" aria-label="図3">
+              <div class="slide-placeholder">図3</div>
+            </div>
+          </div>
+
+          <button class="slider-btn next" type="button" aria-label="次の画像">›</button>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="rules.html">ルールを見る</a>
+          <a class="btn btn-ghost" href="#news">最新情報</a>
+        </div>
+
+        <!-- SNS（ヒーロー内にも置く） -->
+        <p class="hero-sns">
+          公式：
+          <a href="#" target="_blank" rel="noreferrer">X</a> /
+          <a href="#" target="_blank" rel="noreferrer">Instagram</a>
+        </p>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="section" id="beginner">
+    <!-- About（ドロップダウンの遷移先） -->
+    <section class="section" id="about-game">
       <div class="container">
-        <h2 class="section-title">特徴</h2>
+        <h2 class="section-title">どんなゲーム？</h2>
+        <p>（ここに概要を追加）</p>
+      </div>
+    </section>
 
-        <ul class="feature-grid">
-          <li class="card">
-            <h3 class="card-title">移動が主役</h3>
-            <p class="card-text">盤面での位置取りが勝敗に直結。</p>
-          </li>
-          <li class="card">
-            <h3 class="card-title">デッキ×ボード</h3>
-            <p class="card-text">TCGの読み合い＋ボードの戦術。</p>
-          </li>
-          <li class="card">
-            <h3 class="card-title">開発進行中</h3>
-            <p class="card-text">フィードバックでどんどん改善。</p>
-          </li>
-        </ul>
+    <section class="section" id="about-world">
+      <div class="container">
+        <h2 class="section-title">世界観</h2>
+        <p>（ここに世界観を追加）</p>
+      </div>
+    </section>
+
+    <section class="section" id="about-team">
+      <div class="container">
+        <h2 class="section-title">製作者</h2>
+        <p>（ここに制作チーム紹介を追加）</p>
       </div>
     </section>
 
@@ -97,14 +116,12 @@
 
         <ul class="news-list">
           <li class="news-item">
-            <time datetime="2025-12-16">2025.12.16</time>
-            <a href="#">テストプレイ募集を開始しました</a>
-          </li>
-          <li class="news-item">
-            <time datetime="2025-12-10">2025.12.10</time>
-            <a href="#">ルール Ver0.3 を公開</a>
+            <time datetime="2025-12-20">2025.12.20</time>
+            <span>本ホームページ作成</span>
           </li>
         </ul>
+
+        <p class="muted">※他のお知らせは随時追加</p>
       </div>
     </section>
 
@@ -115,19 +132,34 @@
 
         <div class="faq">
           <h3 class="faq-q">Q. いつ完成？</h3>
-          <p class="faq-a">A. テストプレイを重ねて安定版を作る予定です。</p>
-
-          <h3 class="faq-q">Q. 参加できる？</h3>
-          <p class="faq-a">A. テストプレイ参加や感想提供を歓迎します。</p>
+          <p class="faq-a">A. テストプレイを重ね、2026年ゲームマーケット秋で販売予定。</p>
         </div>
+
+        <p class="muted">※他のFAQは随時追加</p>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p>（フォームは後でOK。今は連絡先リンクだけでもOK）</p>
+        <p>
+          <a href="#" target="_blank" rel="noreferrer">公式X</a> /
+          <a href="#" target="_blank" rel="noreferrer">公式Instagram</a>
+        </p>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <small>© Lane Frontier</small>
+      <div class="sns">
+        <a class="sns-link" href="#" target="_blank" rel="noreferrer">X</a>
+        <a class="sns-link" href="#" target="_blank" rel="noreferrer">Instagram</a>
+        <a class="sns-link" href="#" target="_blank" rel="noreferrer">LINE</a>
+      </div>
     </div>
   </footer>
 
