@@ -1,220 +1,352 @@
-/* ===== Base ===== */
-body {
-  background-color: #f5f5f5;
-  line-height: 1.7;
-  margin: 0;
+/* ===== 基本方針 =====
+- 背景は薄い青（サイト全体）  [oai_citation:2‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b)
+- 固い印象を残さない：角丸・余白・やわらかい影
+- 大きい文字：コーポレート・ロゴ（環境依存なのでfallback用意）  [oai_citation:3‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b)
+*/
+
+:root{
+  --bg: #eaf3ff;      /* 薄い青 */
+  --card: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --line: #e6e6e6;
+  --primary: #0066cc;
+  --primary2: #0055aa;
 }
 
-.container {
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+.container{
   max-width: 960px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
-.section {
-  background-color: #ffffff;
-  padding: 28px;
-  margin: 28px 0;
-  border-radius: 8px;
-}
-
-/* ===== Header ===== */
-.site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
+/* ===== Header（スクロールしても上に出る）  [oai_citation:4‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b) ===== */
+.site-header{
   position: sticky;
   top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
 }
 
-.header-inner {
+.header-inner{
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 12px;
   padding: 12px 0;
 }
 
-.logo {
-  font-weight: 700;
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
-  color: #111;
+  color: var(--text);
   white-space: nowrap;
 }
 
-.nav-list {
+.brand-name{
+  /* 「コーポレート・ロゴ」っぽさ：環境で入ってれば使う */
+  font-family: "Corporate Logo", "Corporate Logo Rounded", system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.brand-icon{ font-size: 18px; }
+
+/* ===== Nav ===== */
+.global-nav{ min-width: 0; }
+
+.nav-list{
   list-style: none;
   display: flex;
-  gap: 14px;
+  gap: 10px;
   padding: 0;
   margin: 0;
+  align-items: center;
 }
 
-.nav-list a {
+.nav-link, .nav-button{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 10px;
   text-decoration: none;
   color: #333;
-  padding: 6px 10px;
-  border-radius: 8px;
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
-.nav-list a:hover {
-  background: #f0f0f0;
+.nav-link:hover, .nav-button:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+/* hoverで出るメニュー  [oai_citation:5‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b) */
+.has-dropdown{ position: relative; }
+
+.dropdown{
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 200px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.has-dropdown:hover .dropdown{
+  display: grid;
+  gap: 4px;
+}
+
+.dropdown a{
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #222;
+}
+
+.dropdown a:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+/* ===== SNS ===== */
+.sns{
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sns-link{
+  text-decoration: none;
+  color: #0b3d7a;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.sns-link:hover{
+  background: #fff;
 }
 
 /* ===== Hero ===== */
-.hero {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 44px 28px;
-  margin: 28px 0;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+.hero{
+  margin: 18px 0 24px;
 }
 
-.hero-title {
-  margin: 0 0 10px;
-  font-size: 44px;
+.hero .container{
+  background: var(--card);
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
 }
 
-.hero-lead {
-  margin: 0 0 18px;
+.hero-title{
+  margin: 0 0 8px;
+  font-size: 40px;
+  font-family: "Corporate Logo", "Corporate Logo Rounded", system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.hero-lead{
+  margin: 0 0 14px;
   color: #444;
 }
 
-.hero-actions {
+.hero-actions{
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.hero-sns{
+  margin: 12px 0 0;
+  color: var(--muted);
 }
 
 /* ===== Buttons ===== */
-.btn {
+.btn{
   display: inline-block;
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 10px 14px;
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 800;
 }
 
-.btn-primary {
-  background: #0066cc;
+.btn-primary{
+  background: var(--primary);
   color: #fff;
 }
 
-.btn-primary:hover {
-  background: #0055aa;
-}
+.btn-primary:hover{ background: var(--primary2); }
 
-.btn-ghost {
+.btn-ghost{
   background: #eef5ff;
   color: #003b75;
 }
 
-.btn-ghost:hover {
-  background: #dfeeff;
+.btn-ghost:hover{ background: #dfeeff; }
+
+/* ===== Slider（矢印で切り替え）  [oai_citation:6‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b) ===== */
+.slider{
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f7fbff;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: stretch;
 }
 
-/* ===== Hero Slider ===== */
-.hero-slider {
+.slider-btn{
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+  color: #1a3d6b;
+}
+
+.slider-btn:hover{
+  background: rgba(0,0,0,0.05);
+}
+
+.slides{
   position: relative;
-  min-height: 220px;
+  min-height: 160px;
 }
 
-.hero-slide {
+.slide{
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: translateY(6px);
-  pointer-events: none;
-  transition: opacity 500ms ease, transform 500ms ease;
-}
-
-.hero-slide.is-active {
-  position: relative;
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* ===== Features ===== */
-.feature-grid {
-  list-style: none;
-  padding: 0;
-  margin: 16px 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-}
-
-.card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
+  transform: translateX(10px);
+  transition: opacity 420ms ease, transform 420ms ease;
   padding: 16px;
 }
 
+.slide.is-active{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-placeholder{
+  height: 128px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  border: 1px dashed #9ab7de;
+  color: #3c5f8f;
+  font-weight: 800;
+  background: #ffffff;
+}
+
+/* ===== Sections ===== */
+.section{
+  background: var(--card);
+  border-radius: 14px;
+  padding: 22px;
+  margin: 20px 0;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.04);
+}
+
+.section-title{
+  margin: 0 0 10px;
+}
+
+.muted{
+  color: var(--muted);
+  margin: 10px 0 0;
+}
+
 /* ===== News ===== */
-.news-list {
+.news-list{
   list-style: none;
   padding: 0;
-  margin: 16px 0 0;
+  margin: 12px 0 0;
   display: grid;
   gap: 10px;
 }
 
-.news-item {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 12px 14px;
+.news-item{
   display: flex;
   gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
 }
 
-.news-item time {
-  color: #666;
+.news-item time{
   min-width: 110px;
-}
-
-.news-item a {
-  text-decoration: none;
-  color: #1a1a1a;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ===== FAQ ===== */
-.faq-q {
-  margin: 18px 0 6px;
+.faq-q{
+  margin: 16px 0 6px;
 }
 
-.faq-a {
-  margin: 0 0 12px;
+.faq-a{
+  margin: 0;
   padding-left: 12px;
-  border-left: 3px solid #e6e6e6;
+  border-left: 3px solid var(--line);
+  color: #333;
 }
 
 /* ===== Footer ===== */
-.site-footer {
-  text-align: center;
-  padding: 20px 0;
-  color: #666;
+.site-footer{
+  padding: 22px 0 36px;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 720px) {
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+.footer-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
 
-  .hero-title {
-    font-size: 32px;
-  }
+/* ===== Mobile ===== */
+@media (max-width: 720px){
+  .hero-title{ font-size: 30px; }
 
-  .global-nav {
+  /* ナビ：横スクロール（上下にグラつかないように） */
+  .global-nav{
     overflow-x: auto;
     overflow-y: hidden;
     touch-action: pan-x;
-    max-width: 70vw;
+    -webkit-overflow-scrolling: touch;
+    max-width: 64vw;
   }
 
-  .nav-list {
+  .nav-list{
     flex-wrap: nowrap;
     white-space: nowrap;
+  }
+
+  .footer-inner{
+    flex-direction: column;
   }
 }
