@@ -56,3 +56,32 @@ if (slides.length > 0) {
     startTimer();
   }
 }
+
+// ===== Dropdown（クリックで開閉）=====
+document.querySelectorAll(".has-dropdown > .nav-button").forEach(button => {
+  const parent = button.parentElement;
+  const dropdown = parent.querySelector(".dropdown");
+
+  button.addEventListener("click", () => {
+    const isOpen = parent.classList.contains("is-open");
+
+    // 他を閉じる
+    document.querySelectorAll(".has-dropdown").forEach(el => {
+      el.classList.remove("is-open");
+    });
+
+    // 自分だけトグル
+    if (!isOpen) {
+      parent.classList.add("is-open");
+    }
+  });
+});
+
+// 外をクリックしたら閉じる
+document.addEventListener("click", e => {
+  if (!e.target.closest(".has-dropdown")) {
+    document.querySelectorAll(".has-dropdown").forEach(el => {
+      el.classList.remove("is-open");
+    });
+  }
+});
