@@ -113,3 +113,19 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("open");
 
 });
+const mobileAbout = document.querySelector(".mobile-about");
+const mobileSubmenu = document.querySelector(".mobile-submenu");
+
+mobileAbout.addEventListener("click",()=>{
+
+    if(mobileSubmenu.style.display==="block"){
+
+        mobileSubmenu.style.display="none";
+
+    }else{
+
+        mobileSubmenu.style.display="block";
+
+    }
+
+});
