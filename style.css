@@ -588,3 +588,22 @@ body{
   margin-right: 10px;
   color: #888888;
 }
+
+.sns {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sns a {
+  display: block;
+  line-height: 0;
+}
+
+.sns-icon {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+}
