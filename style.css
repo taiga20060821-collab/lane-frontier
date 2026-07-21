@@ -436,31 +436,50 @@ body{
    スマホ表示
 ========================= */
 
+/* =========================
+   スマホ
+========================= */
+
 @media (max-width:720px){
 
-  /* ☰表示 */
+  /* PCナビを消す */
+  .global-nav{
+    display:none !important;
+  }
+
+  /* ヘッダー */
+  .header-inner{
+    justify-content:flex-start;
+    gap:16px;
+  }
+
+  /* ハンバーガー */
   .menu-toggle{
-    display:block;
 
-    font-size:30px;
+    display:flex;
 
-    background:none;
+    width:42px;
+    height:42px;
 
-    border:none;
+    justify-content:center;
+    align-items:center;
+
+    background:#fff;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    font-size:26px;
 
     cursor:pointer;
+
+    flex-shrink:0;
   }
 
-  /* PCメニューを隠す */
-  .global-nav{
+  /* ×は閉じた時は表示しない */
+  .close-menu{
     display:none;
-  }
-
-  /* ブランドを中央寄せ */
-  .header-inner{
-
-    justify-content:space-between;
-
   }
 
 }
