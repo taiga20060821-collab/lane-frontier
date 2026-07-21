@@ -376,3 +376,91 @@ body{
   display: grid;
   gap: 4px;
 }
+
+/* =========================
+   ハンバーガーメニュー
+========================= */
+
+/* PCでは非表示 */
+.menu-toggle{
+  display:none;
+}
+
+/* 背景 */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.3s;
+
+  z-index:98;
+}
+
+/* メニュー本体 */
+.mobile-menu{
+
+  position:fixed;
+
+  top:0;
+  left:-280px;
+
+  width:280px;
+  height:100vh;
+
+  background:#fff;
+
+  box-shadow:4px 0 20px rgba(0,0,0,.15);
+
+  transition:.3s;
+
+  z-index:99;
+
+  padding:24px;
+}
+
+/* 開いた状態 */
+.mobile-menu.open{
+  left:0;
+}
+
+.menu-overlay.open{
+  opacity:1;
+  visibility:visible;
+}
+
+/* =========================
+   スマホ表示
+========================= */
+
+@media (max-width:720px){
+
+  /* ☰表示 */
+  .menu-toggle{
+    display:block;
+
+    font-size:30px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+  }
+
+  /* PCメニューを隠す */
+  .global-nav{
+    display:none;
+  }
+
+  /* ブランドを中央寄せ */
+  .header-inner{
+
+    justify-content:space-between;
+
+  }
+
+}
