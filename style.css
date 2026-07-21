@@ -1,11 +1,6 @@
-/* ===== 基本方針 =====
-- 背景は薄い青（サイト全体）  [oai_citation:2‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b)
-- 固い印象を残さない：角丸・余白・やわらかい影
-- 大きい文字：コーポレート・ロゴ（環境依存なのでfallback用意）  [oai_citation:3‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b)
-*/
 
 :root{
-  --bg: #eaf3ff;      /* 薄い青 */
+  --bg: #eaf3ff;    
   --card: #ffffff;
   --text: #111;
   --muted: #666;
@@ -58,7 +53,7 @@ body{
 }
 
 .brand-name{
-  /* 「コーポレート・ロゴ」っぽさ：環境で入ってれば使う */
+  
   font-family: "Corporate Logo", "Corporate Logo Rounded", system-ui, -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
   font-weight: 800;
   letter-spacing: 0.02em;
