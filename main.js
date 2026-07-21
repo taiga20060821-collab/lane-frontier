@@ -85,3 +85,31 @@ document.addEventListener("click", e => {
     });
   }
 });
+
+// ===== スマホメニュー =====
+
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+const overlay = document.querySelector(".menu-overlay");
+const closeMenu = document.querySelector(".close-menu");
+
+menuToggle.addEventListener("click", () => {
+
+  mobileMenu.classList.add("open");
+  overlay.classList.add("open");
+
+});
+
+closeMenu.addEventListener("click", () => {
+
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("open");
+
+});
+
+overlay.addEventListener("click", () => {
+
+  mobileMenu.classList.remove("open");
+  overlay.classList.remove("open");
+
+});
