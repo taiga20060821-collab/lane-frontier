@@ -113,19 +113,14 @@ overlay.addEventListener("click", () => {
   overlay.classList.remove("open");
 
 });
+
+// 「レーンフロンティアとは」の開閉
 const mobileAbout = document.querySelector(".mobile-about");
 const mobileSubmenu = document.querySelector(".mobile-submenu");
 
-mobileAbout.addEventListener("click",()=>{
-
-    if(mobileSubmenu.style.display==="block"){
-
-        mobileSubmenu.style.display="none";
-
-    }else{
-
-        mobileSubmenu.style.display="block";
-
-    }
-
-});
+if (mobileAbout && mobileSubmenu) {
+  mobileAbout.addEventListener("click", () => {
+    mobileAbout.classList.toggle("is-open");
+    mobileSubmenu.classList.toggle("is-open");
+  });
+}
