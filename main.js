@@ -1,4 +1,4 @@
-// ===== Slider：矢印で切り替え＋自動切替 =====
+
 // 「矢印を押せばスライドして次の画像」  [oai_citation:7‡ディティール.pptx](sediment://file_0000000077507206badc83a0bb6e396b)
 const slidesEl = document.getElementById("slides");
 const slides = slidesEl ? slidesEl.querySelectorAll(".slide") : [];
@@ -28,14 +28,11 @@ const nextBtn = document.querySelector(".slider-btn.next");
 if (slides.length > 0) {
   show(0);
 
-  // 自動切替
   let timer = setInterval(next, intervalMs);
 
-  // 矢印クリック
   if (prevBtn) prevBtn.addEventListener("click", () => { prev(); resetTimer(); });
   if (nextBtn) nextBtn.addEventListener("click", () => { next(); resetTimer(); });
 
-  // 触ってる間は止める（誤操作防止）
   const slider = document.querySelector(".slider");
   if (slider) {
     slider.addEventListener("mouseenter", stopTimer);
@@ -57,7 +54,6 @@ if (slides.length > 0) {
   }
 }
 
-// ===== Dropdown（クリックで開閉）=====
 document.querySelectorAll(".has-dropdown > .nav-button").forEach(button => {
   const parent = button.parentElement;
   const dropdown = parent.querySelector(".dropdown");
@@ -65,19 +61,16 @@ document.querySelectorAll(".has-dropdown > .nav-button").forEach(button => {
   button.addEventListener("click", () => {
     const isOpen = parent.classList.contains("is-open");
 
-    // 他を閉じる
     document.querySelectorAll(".has-dropdown").forEach(el => {
       el.classList.remove("is-open");
     });
 
-    // 自分だけトグル
     if (!isOpen) {
       parent.classList.add("is-open");
     }
   });
 });
 
-// 外をクリックしたら閉じる
 document.addEventListener("click", e => {
   if (!e.target.closest(".has-dropdown")) {
     document.querySelectorAll(".has-dropdown").forEach(el => {
@@ -85,8 +78,6 @@ document.addEventListener("click", e => {
     });
   }
 });
-
-// ===== スマホメニュー =====
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileMenu = document.querySelector(".mobile-menu");
@@ -114,7 +105,6 @@ overlay.addEventListener("click", () => {
 
 });
 
-// 「レーンフロンティアとは」の開閉
 const mobileAbout = document.querySelector(".mobile-about");
 const mobileSubmenu = document.querySelector(".mobile-submenu");
 
